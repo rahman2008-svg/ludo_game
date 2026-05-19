@@ -1,8 +1,10 @@
 scripts:
-  - name: Give permission to gradlew
-    script: chmod +x gradlew
+  - name: Make gradlew executable
+    script: |
+      chmod +x gradlew
+      ls -la
 
-  - name: Install dependencies
+  - name: Clean project
     script: ./gradlew clean
 
   - name: Build APK
