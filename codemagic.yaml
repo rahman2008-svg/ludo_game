@@ -1,17 +1,9 @@
-workflows:
-  android-build:
-    name: Android Build
-    max_build_duration: 60
-    environment:
-      vars:
-        PACKAGE_NAME: "com.example.ludo"
-      java: 17
-    scripts:
-      - name: Install dependencies
-        script: ./gradlew clean
+scripts:
+  - name: Give permission to gradlew
+    script: chmod +x gradlew
 
-      - name: Build APK
-        script: ./gradlew assembleDebug
+  - name: Install dependencies
+    script: ./gradlew clean
 
-    artifacts:
-      - app/build/outputs/**/*.apk
+  - name: Build APK
+    script: ./gradlew assembleDebug
